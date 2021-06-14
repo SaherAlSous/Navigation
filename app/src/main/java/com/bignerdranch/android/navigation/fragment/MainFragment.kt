@@ -8,7 +8,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.bignerdranch.android.navigation.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +29,8 @@ class MainFragment : Fragment(), View.OnClickListener {
      * Creating a Nav controller and instantiate it in onViewCreated
      */
     private lateinit var navController : NavController
+    private lateinit var navMenuBottom : BottomNavigationView
+
 
     private var param1: String? = null
     private var param2: String? = null
@@ -56,6 +61,10 @@ class MainFragment : Fragment(), View.OnClickListener {
         view.findViewById<Button>(R.id.view_transactions_btn).setOnClickListener(this)
         view.findViewById<Button>(R.id.send_money_btn).setOnClickListener(this)
         view.findViewById<Button>(R.id.view_balance_btn).setOnClickListener(this)
+
+
+
+
 
     }
 

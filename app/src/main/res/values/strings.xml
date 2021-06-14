@@ -2,4 +2,7 @@
     <string name="app_name">Navigation</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_main">Main</string>
+    <string name="view_balance">View Balance</string>
+    <string name="view_transactions">View Transactions</string>
 </resources>
