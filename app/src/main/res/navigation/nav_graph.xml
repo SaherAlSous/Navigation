@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.bignerdranch.android.navigation.fragment.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_chooseRecepientFragment"
+            app:destination="@id/chooseRecepientFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_mainFragment_to_viewTransactionFragment"
+            app:destination="@id/viewTransactionFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/mainFragment" app:popUpToInclusive="true"/> <!-- Not going back to previous page. suppose it is a login page, you close the app -->
+        <action
+            android:id="@+id/action_mainFragment_to_viewBalanceFragment"
+            app:destination="@id/viewBalanceFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/chooseRecepientFragment"
+        android:name="com.bignerdranch.android.navigation.fragment.ChooseRecepientFragment"
+        android:label="ChooseRecepientFragment" >
+
+        <action
+            android:id="@+id/action_chooseRecepientFragment_to_specifyAmountFragment"
+            app:destination="@id/specifyAmountFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_chooseRecepientFragment_pop"
+            app:popUpTo="@id/chooseRecepientFragment"
+            app:popUpToInclusive="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.bignerdranch.android.navigation.fragment.ConfirmationFragment"
+        android:label="ConfirmationFragment" >
+        <argument
+            android:name="recipient"
+            android:defaultValue="None" />
+        <argument
+            android:name="amount"
+            app:argType="com.bignerdranch.android.navigation.model.Money" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewBalanceFragment"
+        android:name="com.bignerdranch.android.navigation.fragment.ViewBalanceFragment"
+        android:label="ViewBalanceFragment" />
+
+    <fragment
+        android:id="@+id/specifyAmountFragment"
+        android:name="com.bignerdranch.android.navigation.fragment.SpecifyAmountFragment"
+        android:label="SpecifyAmountFragment" >
+        <action
+            android:id="@+id/action_specifyAmountFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mainFragment"/> <!---Going back to specific page not the previous page. -->
+        <argument
+            android:name="recipient"
+            android:defaultValue="None" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewTransactionFragment"
+        android:name="com.bignerdranch.android.navigation.fragment.ViewTransactionFragment"
+        android:label="ViewTransactionFragment" />
+</navigation>
